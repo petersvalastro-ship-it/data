@@ -1,9 +1,49 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /*
+   * Futura PT (Adobe): Book = text, Medium = UI, Demi = “soft bold” headings.
+   * If you add Adobe Fonts, load Book + Medium + Demi — avoid heavy Bold for body.
+   */
+  --font-futura-text:
+    "Futura PT Book", "Futura PT", "Futura Book", "Futura", "Century Gothic",
+    "Trebuchet MS", Arial, sans-serif;
+  --font-futura:
+    var(--font-futura-text);
+
+  /*
+   * Colors sampled from public/peter-valastro-headshot.png
+   * (PIL regions + 10-color median cut palette)
+   */
+  --photo-ice: #f1fbfe;
+  --photo-mist: #e0f6fd;
+  --photo-cloud: #c7d8e1;
+  --photo-sky: #99c3da;
+  --photo-sky-deep: #98beca;
+  --photo-slate: #8a9eae;
+  --photo-slate-muted: #768b8a;
+  --photo-bg-neutral: #909ca1;
+  --photo-shirt: #4d6f93;
+  --photo-blue: #067dd3;
+  --photo-navy: #0d386d;
+  --photo-warm: #e9c1b2;
+
+  /* Semantic tokens (site UI) */
+  --ink: #0d386d;
+  --ink-soft: #4d6f93;
+  --accent: #067dd3;
+  --accent-muted: #3d7a9c;
+  --paper: #f1fbfe;
+  --paper-2: #e0f6fd;
+  --white: #ffffff;
+
+  --line: rgba(13, 56, 109, 0.14);
+  --line-strong: rgba(13, 56, 109, 0.22);
+  --shadow: rgba(13, 56, 109, 0.1);
+  --shadow-deep: rgba(13, 56, 109, 0.16);
+
+  font-family: var(--font-futura);
+  line-height: 1.55;
   font-weight: 400;
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: var(--ink);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,4 +57,20 @@
 body {
   margin: 0;
   min-height: 100vh;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--photo-ice);
+}
+
+/* Softer hierarchy: Demi-style emphasis (600), not heavy Bold (700) */
+.page h1,
+.page h2,
+.page h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.page strong {
+  font-weight: 600;
+  color: var(--ink);
 }
